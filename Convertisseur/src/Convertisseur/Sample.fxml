@@ -16,26 +16,12 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Text boundsType="VISUAL" layoutX="3.0" layoutY="-7.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenue sur le convertisseur d'Aiwen ! Utilisez ce convertisseur pour convertir la monnaie, la longueur, le poids, et le temps. :)" textOrigin="TOP" wrappingWidth="455.3671875" x="20.0" y="60.0">
+                        <Text boundsType="VISUAL" layoutX="3.0" layoutY="-7.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenue sur le convertisseur d'Aiwen ! Utilisez ce convertisseur pour convertir la monnaie, la longueur, le poids, l'aire, et le temps. :)" textOrigin="TOP" wrappingWidth="455.3671875" x="20.0" y="60.0">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Text>
-                        <ImageView fitHeight="125.0" fitWidth="146.0" layoutX="24.0" layoutY="156.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../Desktop/money.jpeg" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="101.0" fitWidth="79.0" layoutX="200.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../Desktop/poid.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="131.0" fitWidth="115.0" layoutX="335.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../Desktop/Screen%20Shot%202023-04-12%20at%201.38.54%20AM.png" />
-                           </image>
-                        </ImageView>
+                        <Button layoutX="14.0" layoutY="326.0" mnemonicParsing="false" onAction="#quitter" text="Quitter" />
                      </children>
                   </AnchorPane>
               </content>
@@ -50,6 +36,7 @@
                         <ComboBox fx:id="cbo2" layoutX="270.0" layoutY="140.0" onAction="#ConvertM1" prefWidth="150.0" promptText="Choisir" />
                         <Text layoutX="235.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="=" />
                         <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Convertisseur de monnaie" />
+                        <Button layoutX="14.0" layoutY="326.0" mnemonicParsing="false" onAction="#quitter" text="Quitter" />
                      </children></AnchorPane>
             </content>
           </Tab>
@@ -63,6 +50,7 @@
                         <ComboBox fx:id="cboL2" layoutX="270.0" layoutY="140.0" onAction="#ConvertL1" prefWidth="150.0" />
                         <Text layoutX="235.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="=" />
                         <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Convertisseur de longueur" />
+                        <Button layoutX="14.0" layoutY="326.0" mnemonicParsing="false" onAction="#quitter" text="Quitter" />
                      </children></AnchorPane>
             </content>
           </Tab>
@@ -76,6 +64,7 @@
                         <TextField fx:id="txtP2" layoutX="270.0" layoutY="95.0" onKeyReleased="#ConvertP2" onKeyTyped="#verifNum" prefWidth="150.0" />
                         <Text layoutX="235.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="=" />
                         <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Convertisseur de poids" />
+                        <Button layoutX="14.0" layoutY="326.0" mnemonicParsing="false" onAction="#quitter" text="Quitter" />
                      </children>
                   </AnchorPane>
               </content>
@@ -84,12 +73,28 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="txtT1" layoutX="55.0" layoutY="95.0" prefWidth="150.0" />
-                        <TextField fx:id="txtT2" layoutX="270.0" layoutY="95.0" prefWidth="150.0" />
-                        <ComboBox fx:id="cboT1" layoutX="55.0" layoutY="140.0" prefWidth="150.0" />
-                        <ComboBox fx:id="cboT2" layoutX="270.0" layoutY="140.0" prefWidth="150.0" />
+                        <TextField fx:id="txtT1" layoutX="55.0" layoutY="95.0" onKeyReleased="#ConvertT1" onKeyTyped="#verifNum" prefWidth="150.0" />
+                        <TextField fx:id="txtT2" layoutX="270.0" layoutY="95.0" onKeyReleased="#ConvertT2" onKeyTyped="#verifNum" prefWidth="150.0" />
+                        <ComboBox fx:id="cboT1" layoutX="55.0" layoutY="140.0" onAction="#ConvertT1" prefWidth="150.0" />
+                        <ComboBox fx:id="cboT2" layoutX="270.0" layoutY="140.0" onAction="#ConvertT1" prefWidth="150.0" />
                         <Text layoutX="235.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="=" />
                         <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Convertisseur de temps" />
+                        <Button layoutX="14.0" layoutY="326.0" mnemonicParsing="false" onAction="#quitter" text="Quitter" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Aire">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="txtA1" layoutX="55.0" layoutY="95.0" onKeyReleased="#ConvertA1" onKeyTyped="#verifNum" prefWidth="150.0" />
+                        <TextField fx:id="txtA2" layoutX="270.0" layoutY="95.0" onKeyReleased="#ConvertA2" onKeyTyped="#verifNum" prefWidth="150.0" />
+                        <ComboBox fx:id="cboA1" layoutX="55.0" layoutY="140.0" onAction="#ConvertA1" prefWidth="150.0" />
+                        <ComboBox fx:id="cboA2" layoutX="270.0" layoutY="140.0" onAction="#ConvertA1" prefWidth="150.0" />
+                        <Text layoutX="235.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="=" wrappingWidth="10.333333671092987" />
+                        <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Convertisseur de l'aire" />
+                        <Button layoutX="14.0" layoutY="326.0" mnemonicParsing="false" onAction="#quitter" text="Quitter" />
                      </children>
                   </AnchorPane>
               </content>

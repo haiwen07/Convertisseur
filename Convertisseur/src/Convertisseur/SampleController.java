@@ -1,13 +1,17 @@
 package Convertisseur;
 
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
@@ -63,6 +67,19 @@ public class SampleController implements Initializable
 
 	    @FXML
 	    private ComboBox<String> cboT2;
+	    
+	    @FXML
+	    private TextField txtA1;
+
+	    @FXML
+	    private TextField txtA2;
+	    
+	    @FXML
+	    private ComboBox<String> cboA1;
+
+	    @FXML
+	    private ComboBox<String> cboA2;
+
 
 
     
@@ -78,6 +95,9 @@ public class SampleController implements Initializable
     
     private ObservableList<String> listTemp=FXCollections.observableArrayList("Second", "Milisecond", "Minute", "Hour", "Day", "Week", "Year");
     private double []temp= {3600, 3600000, 60, 1.0, 0.0416666667, 0.005952381, 0.0001140771 };//pour different temp
+    
+    private ObservableList<String> listAire=FXCollections.observableArrayList("m2", "km2", "cm2", "Inch2", "Foot2", "Yard2", "Acres");
+    private double []aire= {1, 0.000001, 10000, 1550.0031, 10.763910417, 1.1959900463, 0.0002471054 };//pour different aires
     
  
     
@@ -105,6 +125,11 @@ public class SampleController implements Initializable
 		cboT2.setItems(listTemp);
 		cboT1.getSelectionModel().selectFirst();
 		cboT2.getSelectionModel().selectFirst();
+		
+		cboA1.setItems(listAire);
+		cboA2.setItems(listAire);
+		cboA1.getSelectionModel().selectFirst();
+		cboA2.getSelectionModel().selectFirst();
 		
 		
 	}
@@ -191,6 +216,30 @@ public class SampleController implements Initializable
     {
     	convert(cboT2,cboT1,txtT2,txtT1,temp);
     }
-
+    
+    @FXML
+    private void ConvertA1()
+    {
+    	convert(cboA1,cboA2,txtA1,txtA2,aire);
+    }
+    @FXML
+    private void ConvertA2()
+    {
+    	convert(cboA2,cboA1,txtA2,txtA1,aire);
+    }
+    
+    @FXML
+    private void quitter()
+    {
+    	Alert alert=new Alert(AlertType.CONFIRMATION);
+    	alert.setHeaderText("Confirmation");
+    	alert.setTitle("Sortie ");
+    	alert.setContentText("Veux tu vraiment quitter?");
+    	Optional <ButtonType> result=alert.showAndWait();
+    	if(result.get()== ButtonType.OK)
+    	{
+    	System.exit(0);
+    	}
+    }
 
 }
